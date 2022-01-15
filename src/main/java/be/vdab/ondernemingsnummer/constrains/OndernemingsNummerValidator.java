@@ -1,8 +1,18 @@
 package be.vdab.ondernemingsnummer.constrains;
 
-public class OndernemingsNummerValidator implements OndernemingsNummer{
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+public class OndernemingsNummerValidator implements ConstraintValidator<OndernemingsNummer, Long> {
     @Override
-    public void initialize(OndernemingsNummer constraintAnnotation){
+    public void initialize(OndernemingsNummer constraintAnnotation) {
     }
 
+    @Override
+    public boolean isValid(Long value, ConstraintValidatorContext context) {
+        if (value == null) {
+            return true;
+        }
+        return 97 - (value / 100) % 97 == value % 100;
+    }
 }

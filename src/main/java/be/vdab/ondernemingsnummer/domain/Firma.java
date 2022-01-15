@@ -2,8 +2,8 @@ package be.vdab.ondernemingsnummer.domain;
 
 import be.vdab.ondernemingsnummer.constrains.OndernemingsNummer;
 
-@OndernemingsNummer
 public class Firma {
+    @OndernemingsNummer
     private long ondernemingsNummer;
 
     public long getOndernemingsNummer() {
